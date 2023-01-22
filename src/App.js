@@ -1,16 +1,18 @@
 import logo from './logo.svg';
 import './App.css';
 import NavBar from './components/NavBar';
+import About from './components/About';
 import TextForm from './components/TextForm';
 
 function App() {
   return (
     <>
       <NavBar title="Text Utils" home="Home" about="About-Us" />
+      <About />
       {/* <NavBar /> */}
-      <div className="container my-3 mx-3">
+      {/* <div className="container my-3 mx-3">
         <TextForm heading ="Enter the text to analyze below."/>
-      </div>
+      </div> */}
     </>
   );
 }

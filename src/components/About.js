@@ -1,7 +1,6 @@
 import React, { useState } from 'react'
 
 export default function About() {
-
     const [myStyle, setMyStyle] = useState({
         backgroundColor: 'white',
         color: 'black'
@@ -23,9 +22,7 @@ export default function About() {
             });
             setBtntext("Enable Dark Mode")
         }
-
     }
-
     return (
         <>
             <div className="container my-3" style={myStyle}>
@@ -72,7 +69,7 @@ export default function About() {
                     <button className="btn btn-dark" onClick={toogleMode}>{btnText}</button>
                 </div>
             </div>
-
         </>
     )
 }
+

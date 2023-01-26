@@ -11,17 +11,26 @@ function App() {
   const [mode, setMode] = useState('light');
   const [alert, setAlert] = useState(null);
 
-  const showAlert =()=>{
-    
+  const showAlert = (message, type) => {
+    setAlert({
+      message: message,
+      type: type
+    })
+    setTimeout(() => {
+      setAlert(null);
+    }, 2000);
+
   }
   const toggleMode = () => {
     if (mode === 'light') {
       setMode('dark');
-      document.body.style.backgroundColor = 'grey'
+      document.body.style.backgroundColor = 'grey';
+      showAlert("Dark Mode has been enabled", "success");
     }
     else {
       setMode('light');
-      document.body.style.backgroundColor = 'white'
+      document.body.style.backgroundColor = 'white';
+      showAlert("Dark Mode has been disabled", "success");
     }
   }
 
@@ -29,9 +38,9 @@ function App() {
     <>
       <NavBar title="Text Utils" home="Home" about="About-Us" mode={mode} toggleMode={toggleMode} />
       {/* <About /> */}
-      <Alert alertMessage="Holy guacamole! You should check in on some of those fields below." />
+      <Alert alert={alert} />
       <div className="container my-3 mx-3">
-        <TextForm heading="Enter the text to analyze below." />
+        <TextForm showAlert={showAlert} heading="Enter the text to analyze below." />
       </div>
     </>
   );

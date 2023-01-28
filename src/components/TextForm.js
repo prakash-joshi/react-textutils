@@ -10,19 +10,19 @@ export default function TextForm(props) {
         console.log("text changed to UPPER case : " + text);
         let newText = text.toUpperCase();
         setText(newText);
-        props.showAlert("Text changed to Upper Case","success");
+        props.showAlert("Text changed to Upper Case", "success");
     }
     const handleLoCaseClick = () => {
         console.log("text changed to lower case : " + text);
         let newText = text.toLowerCase();
         setText(newText);
-        props.showAlert("Text changed to Lower Case","success");
+        props.showAlert("Text changed to Lower Case", "success");
     }
     const clearText = () => {
         console.log("Claering TextArea");
         let newText = "";
         setText(newText);
-        props.showAlert("Text Cleared","success");
+        props.showAlert("Text Cleared", "success");
     }
     return (
         <>
@@ -37,7 +37,7 @@ export default function TextForm(props) {
             </div>
             <div className="container my-3">
                 <h3>Your Text Summary</h3>
-                <p>{text.split(' ').length} words and {text.length} characters</p>
+                <p>{text.split(" ").filter((element) => { return element.length !== 0 }).length} words and {text.length} characters</p>
             </div>
         </>
     )
